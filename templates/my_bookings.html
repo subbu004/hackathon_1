@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='my_bookings.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="title">📄 My Bookings</h2>
+    <p class="subtitle">View and manage your venue reservations</p>
+
+    {% if bookings %}
+        {% for b in bookings %}
+        <div class="booking-card">
+
+            <div class="booking-info">
+                <p>🏫 <b>{{ b[1] }}</b></p>
+                <p>📅 {{ b[2] }}</p>
+                <p>⏰ {{ b[3] }}</p>
+            </div>
+
+            <div class="status-box">
+
+                {% if b[4] == "Approved" %}
+                    <span class="status approved">✅ Approved</span>
+
+                    <form method="POST" action="/staff/venue/cancel">
+                        <input type="hidden" name="booking_id" value="{{ b[0] }}">
+                        <button class="cancel-btn" type="submit">❌ Request Cancel</button>
+                    </form>
+
+                {% elif b[4] == "Pending" %}
+                    <span class="status pending">⏳ Pending Approval</span>
+
+                {% elif b[4] == "Cancel Requested" %}
+                    <span class="status cancel">❌ Cancel Requested</span>
+
+                {% elif b[4] == "Rejected" %}
+                    <span class="status rejected">🚫 Rejected</span>
+
+                {% else %}
+                    <span class="status cancelled">⚠️ Cancel Approved</span>
+                {% endif %}
+
+            </div>
+
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="empty">No bookings found.</p>
+    {% endif %}
+
+    <a href="/staff/venue" class="back-link">← Back to Venue Dashboard</a>
+
+</div>
+
+</body>
+</html>

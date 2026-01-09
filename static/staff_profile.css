@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile Card */
+.profile-container {
+    background: #ffffff;
+    width: 420px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.profile-container h2 {
+    margin: 0;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.profile-table tr {
+    border-bottom: 1px solid #eee;
+}
+
+.profile-table td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.profile-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: #444;
+    width: 35%;
+}
+
+.profile-table td:last-child {
+    text-align: left;
+    color: #555;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #1d2671;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: #141a4f;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .profile-container {
+        width: 90%;
+    }
+}

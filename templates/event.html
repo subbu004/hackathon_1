@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='event.css') }}">
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Add Event Form -->
+        <form method="POST" action="/staff/add-event" class="form-card">
+            <h3>Add Event</h3>
+            <input type="text" name="title" placeholder="Event Title" required>
+            <textarea name="content" placeholder="Event Details" required></textarea>
+            <input type="date" name="expiry_date" required>
+            <button type="submit">Post Event</button>
+        </form>
+
+        <!-- Back Button -->
+        <a href="{{ url_for('staff_dashboard') }}" class="back-btn">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

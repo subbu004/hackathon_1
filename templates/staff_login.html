@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='staff_login.css') }}">
+</head>
+<body>
+
+<div class="login-box">
+
+    <div class="logo">🏫</div>
+
+    <h2>Staff Login</h2>
+    <p class="subtitle">College Management Portal</p>
+
+    <form method="POST">
+        <input type="email" name="email" placeholder="Email address" required>
+
+        <div class="password-box">
+            <input type="password" name="password" id="password" placeholder="Password" required>
+
+            <!-- Flat SVG icon -->
+            <span class="toggle" onclick="togglePassword()" id="eyeIcon">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path fill="#555"
+                        d="M12 5C7 5 2.73 8.11 1 12c1.73 3.89 6 7 11 7s9.27-3.11 11-7c-1.73-3.89-6-7-11-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                </svg>
+            </span>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <a href="#" class="forgot">Forgot password?</a>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='staff_login.js') }}"></script>
+</body>
+</html>

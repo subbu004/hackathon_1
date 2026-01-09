@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='staff_notifications.css') }}">
+</head>
+<body>
+
+<div class="notify-container">
+
+    <h2>🔔 Notifications</h2>
+
+    <ul class="notify-list">
+        {% for msg, date in notifications %}
+        <li class="notify-item unread">
+            <div class="notify-text">
+                {{ msg }}
+            </div>
+
+            <span class="notify-time">
+                {% if date.date() == current_date %}
+                    Today {{ date.strftime('%H:%M') }}
+                {% elif date.date() == yesterday_date %}
+                    Yesterday {{ date.strftime('%H:%M') }}
+                {% else %}
+                    {{ date.strftime('%d %b %H:%M') }}
+                {% endif %}
+            </span>
+        </li>
+        {% else %}
+        <li class="notify-empty">No notifications</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('staff_dashboard') }}" class="back-btn">
+        ← Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

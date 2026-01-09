@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='admin_complaints.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>📢 Complaints</h2>
+    <p class="subtitle">List of submitted facility complaints</p>
+
+    <div class="table-wrapper">
+        <table id="complaintsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Facility</th>
+                    <th>Location</th>
+                    <th>Issue</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for c in complaints %}
+                <tr>
+                    <td>{{ c[0] }}</td>
+                    <td>{{ c[1] }}</td>
+                    <td>{{ c[2] }}</td>
+                    <td class="issue">{{ c[3] }}</td>
+                    <td>
+                        <span class="status {{ c[4]|lower }}">
+                            {{ c[4] }}
+                        </span>
+                    </td>
+                    <td>{{ c[5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='admin_complaints.js') }}"></script>
+</body>
+</html>

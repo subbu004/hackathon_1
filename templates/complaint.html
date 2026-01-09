@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facility Complaint System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='complaint.css') }}">
+   
+</head>
+<body>
+
+<h2>Facility Complaint Form</h2>
+
+<form method="POST">
+    <label>Student Name</label>
+    <input type="text" name="name" required>
+
+    <label>Facility</label>
+    <select name="facility" id="facility" onchange="updateLocations()" required>
+        <option value="">-- Select Facility --</option>
+        <option value="Restroom">Restroom</option>
+        <option value="Drinking Water">Drinking Water</option>
+        <option value="Electrical & Plumbing">Electrical & Plumbing</option>
+    </select>
+
+    <label>Location</label>
+    <select name="location" id="location" required>
+        <option value="">-- Select Location --</option>
+    </select>
+
+    <label>Issue Description</label>
+    <textarea name="issue" required></textarea>
+
+    <button type="submit">Submit Complaint</button>
+</form>
+
+<script>
+    // Map facility to its locations
+    const facilityLocations = {
+        "Restroom": ["Parking", "Pll Hall G-Floor"],
+        "Drinking Water": ["Near Library", "Near Centenary Hall"],
+        "Electrical & Plumbing": ["Main Hall", "Pll hall"]
+    };
+
+    function updateLocations() {
+        const facilitySelect = document.getElementById('facility');
+        const locationSelect = document.getElementById('location');
+        const selectedFacility = facilitySelect.value;
+
+        // Clear previous options
+        locationSelect.innerHTML = '<option value="">-- Select Location --</option>';
+
+        if (selectedFacility && facilityLocations[selectedFacility]) {
+            facilityLocations[selectedFacility].forEach(loc => {
+                const option = document.createElement('option');
+                option.value = loc;
+                option.text = loc;
+                locationSelect.add(option);
+            });
+        }
+    }
+</script>
+
+</body>
+</html>

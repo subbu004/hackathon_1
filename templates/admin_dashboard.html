@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+
+        <div class="cards">
+            <a href="/admin/students" class="card">
+                <span class="emoji">🎓</span>
+                <span class="card-text">Students</span>
+            </a>
+            <a href="/admin/staffs" class="card">
+                <span class="emoji">🧑‍🏫</span>
+                <span class="card-text">Staff</span>
+            </a>
+            <a href="/admin/complaints" class="card">
+                <span class="emoji">📝</span>
+                <span class="card-text">Complaints</span>
+            </a>
+            <a href="/admin/venue" class="card">
+                <span class="emoji">🏢</span>
+                <span class="card-text">Venue Requests</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Add active effect on click
+        const cards = document.querySelectorAll('.cards a');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                cards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

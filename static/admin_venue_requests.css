@@ -1,0 +1,161 @@
+/* ---------------- BODY ---------------- */
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+    min-height: 100vh;
+}
+
+/* ---------------- CONTAINER ---------------- */
+.container {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* ---------------- TITLE ---------------- */
+.title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #e0e7ff;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* ---------------- CARD ---------------- */
+.card {
+    background: #ffffff;
+    padding: 22px 26px;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.6);
+}
+
+.card:active {
+    transform: translateY(-2px) scale(0.99);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.7);
+}
+
+.card p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+.card p b {
+    color: #0f172a;
+}
+
+/* ---------------- STATUS ---------------- */
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status.pending {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.status.approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status.rejected {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status.cancel {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* ---------------- ACTION BUTTONS ---------------- */
+.actions {
+    margin-top: 14px;
+}
+
+.btn {
+    padding: 9px 18px;
+    border-radius: 22px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+/* Approve */
+.btn.approve {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #ffffff;
+}
+.btn.approve:hover {
+    opacity: 0.9;
+}
+
+/* Reject */
+.btn.reject {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #ffffff;
+}
+.btn.reject:hover {
+    opacity: 0.9;
+}
+
+/* Cancel */
+.btn.cancel {
+    background: linear-gradient(135deg, #facc15, #eab308);
+    color: #78350f;
+}
+.btn.cancel:hover {
+    opacity: 0.9;
+}
+
+/* Button click */
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* ---------------- EMPTY ---------------- */
+.empty {
+    text-align: center;
+    font-size: 18px;
+    color: #c7d2fe;
+    margin: 40px 0;
+}
+
+/* ---------------- BACK TO DASHBOARD ---------------- */
+.back-link {
+    align-self: center;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    color: #e0e7ff;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 28px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.7);
+    transition: all 0.25s ease;
+}
+
+.back-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.85);
+}

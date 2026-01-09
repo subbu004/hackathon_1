@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='news.css') }}">
+</head>
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Add News Form -->
+        <form method="POST" action="/staff/add-news" class="form-card">
+            <h3>📰 Add News</h3>
+
+            <label>News Title</label>
+            <input type="text" name="title" placeholder="Enter news title" required>
+
+            <label>News Content</label>
+            <textarea name="content" placeholder="Write news details..." required></textarea>
+
+            <button type="submit">Post News</button>
+        </form>
+
+        <!-- Back Button (NOW BELOW FORM) -->
+        <a href="{{ url_for('staff_dashboard') }}" class="back-btn">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

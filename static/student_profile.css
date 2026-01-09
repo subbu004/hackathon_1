@@ -1,0 +1,104 @@
+/* student_profile.css - clean & elegant version */
+
+/* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 15px;
+    color: #333;
+}
+
+/* PROFILE CARD */
+.profile-card {
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 30px 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: left;
+    position: relative;
+}
+
+/* PROFILE TITLE */
+.profile-card h2 {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    color: #2c2c54;
+    margin-bottom: 25px;
+}
+
+.profile-card h2::before {
+    content: "👤";
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+/* PROFILE FIELDS */
+.profile-field {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.profile-field:last-child {
+    border-bottom: none;
+}
+
+.profile-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.profile-value {
+    color: #333;
+    text-align: right;
+}
+
+/* BACK LINK */
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #6c5ce7;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #341f97;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 480px) {
+    .profile-card {
+        padding: 20px 15px;
+    }
+
+    .profile-card h2 {
+        font-size: 22px;
+    }
+
+    .profile-field {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-value {
+        margin-top: 4px;
+        text-align: left;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='staff_dashboard.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="title">👩‍🏫 Student Dashboard</h2>
+
+    <!-- Dashboard Cards -->
+    <div class="card-section">
+        
+        <a href="{{ url_for('student_profile') }}" class="card profile">
+    👤
+    <span>My Profile</span>
+</a>
+  
+
+        <a href=/complaint class="card complaints">
+            🛠
+            <span>Complaints</span>
+        </a>
+        
+        
+
+    </div>
+    
+</div>
+<script src="/static/staff.js"></script>
+
+</body>
+</html>

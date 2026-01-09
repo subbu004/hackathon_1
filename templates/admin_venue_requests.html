@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Venue Requests – Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_venue_requests.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2 class="title">🏫 Venue Requests</h2>
+
+    {% if requests %}
+        {% for r in requests %}
+        <div class="card">
+            <p><b>Venue:</b> {{ r[2] }}</p>
+            <p><b>Date:</b> {{ r[3] }}</p>
+            <p><b>Slot:</b> {{ r[4] }}</p>
+            <p><b>Purpose:</b> {{ r[5] }}</p>
+            <p><b>Strength:</b> {{ r[6] }}</p>
+
+            <p><b>Status:</b> 
+                <span class="status 
+                    {% if r[7]=='Pending' %}pending
+                    {% elif r[7]=='Approved' %}approved
+                    {% elif r[7]=='Rejected' %}rejected
+                    {% elif r[7]=='Cancel Requested' %}cancel
+                    {% else %}pending{% endif %}">
+                    {{ r[7] if r[7] else "Pending" }}
+                </span>
+            </p>
+
+            <div class="actions">
+                {% if r[7] == "Pending" %}
+                    <a class="btn approve" href="/admin/venue/approve/{{ r[0] }}">✅ Approve</a>
+                    <a class="btn reject" href="/admin/venue/reject/{{ r[0] }}">❌ Reject</a>
+
+                {% elif r[7] == "Cancel Requested" %}
+                    <a class="btn cancel" href="/admin/venue/cancel-approve/{{ r[0] }}">
+                        ❌ Approve Cancel
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="empty">No venue requests available.</p>
+    {% endif %}
+
+    <a class="back-link" href="/admin/dashboard">← Back to Dashboard</a>
+</div>
+
+</body>
+</html>

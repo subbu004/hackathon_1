@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Venue Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='venue_dashboard.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="title">🏫 Venue Dashboard</h2>
+    <p class="subtitle">Manage your venue bookings easily</p>
+
+    <div class="card-section">
+
+        <a href="/staff/venue/book" class="card">
+            <div class="emoji">🆕</div>
+            <span>Book Venue</span>
+        </a>
+
+        <a href="/staff/venue/my-bookings" class="card">
+            <div class="emoji">📄</div>
+            <span>My Bookings</span>
+        </a>
+
+    </div>
+
+    <a href="/staff/dashboard" class="back-link">← Back to Staff Dashboard</a>
+
+</div>
+
+</body>
+</html>

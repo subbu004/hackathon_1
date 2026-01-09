@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='staff_profile.css') }}">
+</head>
+<body>
+
+<div class="profile-container">
+
+    <h2>👤 My Profile</h2>
+    <p class="subtitle">Staff Information</p>
+
+    <table class="profile-table">
+        <tr>
+            <td>Name</td>
+            <td>{{ staff[0] }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ staff[1] }}</td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td>{{ staff[2] }}</td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td>{{ staff[3] }}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>{{ staff[4] }}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{ staff[5] }}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>{{ staff[6] }}</td>
+        </tr>
+    </table>
+
+    <a href="/staff/dashboard" class="back-btn">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

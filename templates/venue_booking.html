@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Venue Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='venue_booking.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="booking-card">
+        <h2>🏫 Book Venue</h2>
+
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+
+        <form method="POST">
+
+            <label>Venue</label>
+            <select name="venue" required>
+                {% for v in venues %}
+                    <option value="{{ v }}">{{ v }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Date</label>
+            <input type="date" name="date" required>
+
+            <label>Time Slot</label>
+            <select name="slot" required>
+                {% for s in slots %}
+                    <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+
+            <label>Purpose</label>
+            <input type="text" name="purpose" placeholder="Purpose of booking" required>
+
+            <label>Expected Strength</label>
+            <input type="number" name="strength" placeholder="Number of participants" required>
+
+            <button type="submit">Book Venue</button>
+        </form>
+
+        <a href="/staff/venue" class="back-link">← Back to Venue</a>
+    </div>
+
+</div>
+
+</body>
+</html>

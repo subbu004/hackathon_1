@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The American College</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+</head>
+<body>
+
+<header class="header">
+    <img src="{{ url_for('static', filename='images/logo.jpeg') }}" 
+         alt="College Logo" 
+         class="logo">
+    <h1>The American College</h1>
+</header>
+
+
+<!-- NAV -->
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Academics</a>
+    <a href="#">Admissions</a>
+    <a href="#">Contact</a>
+</nav>
+
+<!-- PRINCIPAL -->
+<section class="principal-section">
+    <img src="{{ url_for('static', filename='images/principal.jpeg') }}" 
+         alt="Principal" 
+         class="principal-img">
+    <h3>Dr. Paul Jayakar</h3>
+    <p>Principal, The American College</p>
+</section>
+
+
+
+<!-- CARDS -->
+<section class="card-section">
+<a href="{{ url_for('student_login') }}" class="card">🎓 Student Login</a>
+
+<a href="{{ url_for('staff_login') }}" class="card"> 👩‍🏫 Staff Login</a>
+
+</section>
+
+<!-- NEWS -->
+<section class="news">
+    <h2>Daily News</h2>
+    {% for n in news %}
+        <p>
+            <strong>{{ n[0] }}</strong><br>
+            {{ n[1] }}
+        </p>
+    {% else %}
+        <p>No news available</p>
+    {% endfor %}
+</section>
+
+<section class="news">
+    <h2>Events</h2>
+    {% for e in events %}
+        <p>
+            <strong>{{ e[0] }}</strong><br>
+            {{ e[1] }}
+        </p>
+    {% else %}
+        <p>No upcoming events</p>
+    {% endfor %}
+</section>
+
+
+
+<footer>
+    © 2026 The American College | Madurai
+</footer>
+
+<!-- CHATBOT TOGGLE -->
+<div id="chat-toggle" onclick="toggleChat()">💬</div>
+
+<!-- CHATBOT -->
+<div class="chat-container" id="chatbot">
+    <div class="chat-header">
+        🎓 College AI Assistant
+        <span onclick="toggleChat()">✖</span>
+    </div>
+
+    <div class="chat-box" id="answer">
+        <div class="bot-message">
+            Hi 👋 I am your College AI Assistant.
+        </div>
+    </div>
+
+    <div class="chat-input">
+        <input id="question" placeholder="Ask something...">
+        <button onclick="send()">➤</button>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

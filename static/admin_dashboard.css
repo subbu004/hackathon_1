@@ -1,0 +1,94 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    padding: 40px;
+}
+
+/* Header */
+.container h1 {
+    color: white;
+    font-size: 42px;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Cards grid */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Individual cards */
+.cards a {
+    background: white;
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #1f2937;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.cards a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #6b73ff, #000dff);
+    color: white;
+}
+
+/* Active card */
+.cards a.active {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    color: white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+    transform: translateY(-5px);
+}
+
+/* Emoji */
+.emoji {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+/* Card text */
+.card-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .cards a {
+        width: 140px;
+        height: 140px;
+    }
+
+    .container h1 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+}
